@@ -28,4 +28,4 @@ jobs:
         run: tofu plan -no-color
 
       - name: OpenTofu Apply
-        run: tofu apply -no-color
+        run: tofu apply -no-color -auto-approve
