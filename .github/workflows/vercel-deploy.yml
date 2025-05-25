@@ -1,0 +1,31 @@
+name: "OpenTofu Deploy Website to Vercel"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  tofu-deploy:
+    env:
+      VERCEL_API_TOKEN: ${{ secrets.VERCEL_API_TOKEN }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: opentofu/setup-opentofu@v1
+
+      - name: OpenTofu format
+        run: tofu fmt -check
+
+      - name: OpenTofu Init
+        run: tofu init
+
+      - name: OpenTofu Validate
+        run: tofu validate -no-color
+
+      - name: OpenTofu Plan
+        run: tofu plan -no-color
+
+      - name: OpenTofu Apply
+        run: tofu apply -no-color
