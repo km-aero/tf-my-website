@@ -6,6 +6,12 @@ terraform {
     }
   }
 
+  backend "s3" {
+    bucket = "my-bucket-of-stuff-1829"
+    key    = "tf-state"
+    region = "eu-west-2"
+  }
+
   required_version = "1.9.1"
 }
 
