@@ -9,3 +9,15 @@ resource "vercel_project" "my_website" {
     production_branch = "main"
   }
 }
+
+resource "vercel_project_domain" "main" {
+  project_id           = vercel_project.my_website.id
+  domain               = "kbmm.cloud"
+  redirect             = vercel_project_domain.secondary.domain
+  redirect_status_code = 307
+}
+
+resource "vercel_project_domain" "secondary" {
+  project_id = vercel_project.my_website.id
+  domain     = "www.kbmm.cloud"
+}
