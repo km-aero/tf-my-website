@@ -13,7 +13,7 @@ resource "vercel_project" "my_website" {
 resource "vercel_project_domain" "main" {
   project_id           = vercel_project.my_website.id
   domain               = "kbmm.cloud"
-  redirect             = vercel_project_domain.secondary.domain
+  redirect             = vercel_project_domain.www_main.domain
   redirect_status_code = 307
 }
 
