@@ -1,9 +1,11 @@
 resource "vercel_project" "my_website" {
-  name      = var.project_name
-  framework = "nextjs"
+  name                       = var.project_name
+  framework                  = "nextjs"
+  auto_assign_custom_domains = false
 
   git_repository = {
-    type = "github"
-    repo = "km-aero/my-website"
+    type              = "github"
+    repo              = "km-aero/my-website"
+    production_branch = "main"
   }
 }
