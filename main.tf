@@ -1,7 +1,6 @@
 resource "vercel_project" "my_website" {
-  name                       = var.project_name
-  framework                  = "nextjs"
-  auto_assign_custom_domains = false
+  name      = var.project_name
+  framework = "nextjs"
 
   git_repository = {
     type              = "github"
