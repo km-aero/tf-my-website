@@ -8,7 +8,7 @@ terraform {
 
   backend "s3" {
     bucket = "my-bucket-of-stuff-1829"
-    key    = "tf-state"
+    key    = "opentofu.tfstate"
     region = "eu-west-2"
   }
 
